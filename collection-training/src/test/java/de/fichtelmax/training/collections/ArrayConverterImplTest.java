@@ -127,7 +127,7 @@ public class ArrayConverterImplTest
     {
         Object[] input1 = { "a", "b", "c" };
         Object[] input2 = { "a", "b", "c" };
-        Object[] expectedElements = { "a", "b", "c" };
+        Object[] expectedElements = { "a", "b", "c", "a", "b", "c" };
         Collection<Object> combined = testObject.combine( input1, input2 );
         assertThat( combined.size(), is( input1.length + input2.length ) );
         assertThat( combined, containsInAnyOrder( expectedElements ) );
@@ -144,7 +144,7 @@ public class ArrayConverterImplTest
         
         input1 = new Object[] { 1, 2, 3 };
         input2 = new Object[] { 3, 4, 5, 6 };
-        expectedElements = new Object[] { 1, 2, 3, 4, 5, 6 };
+        expectedElements = new Object[] { 1, 2, 3, 3, 4, 5, 6 };
         combined = testObject.combine( input1, input2 );
         assertThat( combined.size(), is( input1.length + input2.length ) );
         assertThat( combined, containsInAnyOrder( expectedElements ) );
@@ -156,7 +156,7 @@ public class ArrayConverterImplTest
     {
         Collection<Object> input1 = Arrays.asList( (Object) "a", "b", "c" );
         Collection<Object> input2 = Arrays.asList( (Object) "a", "b", "c" );
-        Object[] expectedElements = { "a", "b", "c" };
+        Object[] expectedElements = { "a", "b", "c", "a", "b", "c" };
         Collection<Object> combined = testObject.combine( input1, input2 );
         assertThat( combined.size(), is( input1.size() + input2.size() ) );
         assertThat( combined, containsInAnyOrder( expectedElements ) );
@@ -173,7 +173,7 @@ public class ArrayConverterImplTest
         
         input1 = Arrays.asList( (Object) 1, 2, 3 );
         input2 = Arrays.asList( (Object) 3, 4, 5, 6 );
-        expectedElements = new Object[] { 1, 2, 3, 4, 5, 6 };
+        expectedElements = new Object[] { 1, 2, 3, 3, 4, 5, 6 };
         combined = testObject.combine( input1, input2 );
         assertThat( combined.size(), is( input1.size() + input2.size() ) );
         assertThat( combined, containsInAnyOrder( expectedElements ) );
